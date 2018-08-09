@@ -123,7 +123,15 @@ OMX_ERRORTYPE Exynos_OSAL_LockANBHandle(
         break;
     }
 
-    if (mapper.importBuffer(bufferHandle, &bufferHandle) != 0) {
+    *pStride = (OMX_U32)priv_hnd->stride;
+
+    /*
+     * because the imported buffer-handle gets cloned, we can safely
+     * overwrite the original buffer-handle to prevent editing the whole
+     * goddamn source and pass a secondary buffer-handle
+     */
+    if (mapper.importBuffer(bufferHandle, (uint32_t)width, (uint32_t)height,
+			0 /* TODO */, 0 /* TODO */, usage, *pStride, &bufferHandle) != 0) {
         Exynos_OSAL_Log(EXYNOS_LOG_ERROR, "%s: mapper.importBuffer() failed", __func__);
         ret = OMX_ErrorUndefined;
         goto EXIT;
@@ -148,8 +156,6 @@ OMX_ERRORTYPE Exynos_OSAL_LockANBHandle(
     vplanes[0].addr = vaddr[0];
     vplanes[1].addr = vaddr[1];
     vplanes[2].addr = vaddr[2];
-
-    *pStride = (OMX_U32)priv_hnd->stride;
 
     Exynos_OSAL_Log(EXYNOS_LOG_TRACE, "%s: buffer locked: 0x%x", __func__, *vaddr);
 
