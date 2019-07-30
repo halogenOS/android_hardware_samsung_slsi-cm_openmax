@@ -17,7 +17,7 @@ LOCAL_SRC_FILES := \
 
 LOCAL_MODULE := libExynosOMX_OSAL
 
-LOCAL_CFLAGS :=
+LOCAL_CFLAGS := -Wno-mismatched-tags -Wno-unused-parameter -Wno-format -Wno-unused-variable -Wno-gnu-designator -Wno-error -Wno-unused-label
 
 ifeq ($(BOARD_USE_ANDROID), true)
 LOCAL_SRC_FILES += \

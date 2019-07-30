@@ -9,7 +9,7 @@ LOCAL_SRC_FILES := \
 
 LOCAL_MODULE := libExynosOMX_Basecomponent
 
-LOCAL_CFLAGS :=
+LOCAL_CFLAGS := -Wno-mismatched-tags -Wno-unused-parameter -Wno-format -Wno-unused-variable -Wno-gnu-designator -Wno-error -Wno-unused-label
 LOCAL_CFLAGS += -Wno-error
 
 LOCAL_STATIC_LIBRARIES := libExynosOMX_OSAL
@@ -41,7 +41,7 @@ LOCAL_SRC_FILES := \
 
 LOCAL_MODULE := libExynosOMX_Resourcemanager
 
-LOCAL_CFLAGS :=
+LOCAL_CFLAGS := -Wno-mismatched-tags -Wno-unused-parameter -Wno-format -Wno-unused-variable -Wno-gnu-designator -Wno-error -Wno-unused-label
 LOCAL_CFLAGS += -Wno-error
 
 LOCAL_STATIC_LIBRARIES := libExynosOMX_OSAL

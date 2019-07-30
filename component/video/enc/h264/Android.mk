@@ -10,7 +10,7 @@ LOCAL_SRC_FILES := \
 LOCAL_MODULE := libOMX.Exynos.AVC.Encoder
 LOCAL_MODULE_RELATIVE_PATH := omx
 
-LOCAL_CFLAGS :=
+LOCAL_CFLAGS := -Wno-mismatched-tags -Wno-unused-parameter -Wno-format -Wno-unused-variable -Wno-gnu-designator -Wno-error -Wno-unused-label
 LOCAL_CFLAGS += -Wno-error
 
 ifeq ($(BOARD_USE_ANDROID), true)

@@ -10,7 +10,7 @@ LOCAL_SRC_FILES := \
 LOCAL_MODULE := libOMX.Exynos.VP8.Encoder
 LOCAL_MODULE_RELATIVE_PATH := omx
 
-LOCAL_CFLAGS := -DUSE_VP8ENC_SUPPORT
+LOCAL_CFLAGS := -DUSE_VP8ENC_SUPPORT -Wno-mismatched-tags -Wno-unused-parameter -Wno-format -Wno-unused-variable -Wno-gnu-designator -Wno-error -Wno-unused-label
 
 ifeq ($(BOARD_USE_METADATABUFFERTYPE), true)
 LOCAL_CFLAGS += -DUSE_METADATABUFFERTYPE

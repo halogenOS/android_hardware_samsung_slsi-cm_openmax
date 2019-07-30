@@ -10,7 +10,7 @@ LOCAL_SRC_FILES := \
 LOCAL_MODULE := libOMX.Exynos.AVC.Decoder
 LOCAL_MODULE_RELATIVE_PATH := omx
 
-LOCAL_CFLAGS :=
+LOCAL_CFLAGS := -Wno-mismatched-tags -Wno-unused-parameter -Wno-format -Wno-unused-variable -Wno-gnu-designator -Wno-error -Wno-unused-label
 
 ifeq ($(BOARD_USE_ANB), true)
 LOCAL_CFLAGS += -DUSE_ANB
